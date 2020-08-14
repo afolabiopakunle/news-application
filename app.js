@@ -33,12 +33,7 @@ const newSchema = mongoose.Schema({
 
 const News = mongoose.model("New", newSchema);
 
-// News.create({
-//     title: "AlphaBlog is LIVE!!!",
-//     picture: "https://naijanetworth.com/wp-content/uploads/2019/04/Newspapers.jpg",
-//     body: "A Nigerian newspaper and Online version of the Vanguard, a daily publication in Nigeria covering Nigeria news, Niger delta, general national news, politics, ..."
-// })
-
+//Landing Page
 app.get("/", (req, res) => {
     News.find({}, (err, news) => {
         if (err) {
@@ -52,4 +47,9 @@ app.get("/", (req, res) => {
     })
 })
 
+
+//Post News
+app.get("/news/new", (req, res) => {
+    res.render("new")
+})
 app.listen(3000, () => console.log(`app running on port ${PORT} http://localhost:${PORT}`));
