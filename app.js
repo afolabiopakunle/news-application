@@ -19,7 +19,11 @@ mongoose.connect("mongodb://localhost/news-application", {
 //NEWS SCHEMA
 const newSchema = mongoose.Schema({
     title: String,
-    picture: String,
+    picture: {
+        type: String,
+        default: "https://image.flaticon.com/icons/svg/78/78793.svg"
+    },
+    String,
     body: String,
     createdOn: {
         type: Date,
