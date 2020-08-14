@@ -36,7 +36,16 @@ const News = mongoose.model("New", newSchema);
 // })
 
 app.get("/", (req, res) => {
-    res.render("index")
+    News.find({}, (err, news) => {
+        if (err) {
+            console.log(err)
+        } else {
+
+            res.render("index", {
+                news
+            })
+        }
+    })
 })
 
 app.listen(3000, () => console.log(`app running on port ${PORT} http://localhost:${PORT}`));
