@@ -71,5 +71,16 @@ app.post("/news", (req, res) => {
     })
 })
 
+app.get("/news/:id", (req, res) => {
+    News.findById(req.params.id, (err, foundNews) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("shownews", {
+                foundNews
+            })
+        }
+    })
+})
 //SHOW NEWS
 app.listen(3000, () => console.log(`app running on port ${PORT} http://localhost:${PORT}`));
