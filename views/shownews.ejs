@@ -18,7 +18,13 @@
                 </figure>
                 <p><%= foundNews.body %></p>
             </div>
-            <a href="/news/<%= foundNews._id %>/edit" class="btn btn-primary float-right">Edit News</a>
+            <div>
+                <a href="/news/<%= foundNews._id %>/edit" class="btn btn-primary float-right">Edit News</a>
+            </div>
+            <div class="clearfix mb-3"></div>
+            <div>
+                <a href="/news/<%= foundNews._id %>/edit" class="btn btn-danger float-right">Delete News</a>
+            </div>
         </div>
     </article>
 </div>
