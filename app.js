@@ -62,8 +62,6 @@ app.post("/news", (req, res) => {
         picture,
         body
     }
-    // console.log(receivedNews)
-    // res.send("Posted")
     News.create(receivedNews, (err, news) => {
         if (err) {
             console.log(err);
@@ -72,4 +70,6 @@ app.post("/news", (req, res) => {
         }
     })
 })
+
+//SHOW NEWS
 app.listen(3000, () => console.log(`app running on port ${PORT} http://localhost:${PORT}`));
