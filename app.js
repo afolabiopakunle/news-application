@@ -52,4 +52,24 @@ app.get("/", (req, res) => {
 app.get("/news/new", (req, res) => {
     res.render("new")
 })
+
+app.post("/news", (req, res) => {
+    title = req.body.title;
+    picture = req.body.picture;
+    body = req.body.body;
+    let receivedNews = {
+        title,
+        picture,
+        body
+    }
+    // console.log(receivedNews)
+    // res.send("Posted")
+    News.create(receivedNews, (err, news) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/");
+        }
+    })
+})
 app.listen(3000, () => console.log(`app running on port ${PORT} http://localhost:${PORT}`));
