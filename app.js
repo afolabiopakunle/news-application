@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override")
 const PORT = process.env.PORT || 3000;
 
 
@@ -10,6 +11,7 @@ app.use(express.static("public"))
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(methodOverride("_method"));
 
 mongoose.connect("mongodb://localhost/news-application", {
     useNewUrlParser: true,
@@ -93,8 +95,22 @@ app.get("/news/:id/edit", (req, res) => {
     })
 })
 
-app.put("/news/update", (req, res) => {
-
+app.put("/news/:id", (req, res) => {
+    title = req.body.title;
+    picture = req.body.picture;
+    body = req.body.body;
+    let receivedNews = {
+        title,
+        picture,
+        body
+    }
+    News.findByIdAndUpdate(req.params.id, receivedNews, (err, updatedBlog) => {
+        if (err) {
+            res.redirect("/")
+        } else {
+            res.redirect("/news/" + req.params.id)
+        }
+    })
 })
 
 app.listen(3000, () => console.log(`app running on port ${PORT} http://localhost:${PORT}`));

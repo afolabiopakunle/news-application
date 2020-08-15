@@ -2,7 +2,7 @@
 <section class="cta-section theme-bg-light py-5 vh-100">
     <div class="container">
         <h2 class="heading">EDIT: <%= foundNews.title %></h2>
-        <form action="/news" method="POST">
+        <form action="/news/<%= foundNews._id %>?_method=PUT" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">News Title</label>
                 <input type="text" value="<%= foundNews.title %>" class=" form-control" name="title" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="News Title">
