@@ -5,7 +5,8 @@
         <div class="container">
             <header class="blog-post-header">
                 <h2 class="title mb-2"><%= foundNews.title %></h2>
-                <div class="meta mb-3"><span class="date">Published on <%= foundNews.createdOn %> </span><span class="time">5 min read</span><span class="comment"><a href="#">4 comments</a></span>
+                <div class="meta mb-3"><span class="date">Published on <%= foundNews.createdOn.toDateString() %> </span><span class="time">5 min read</span><span class="comment"><a href="#">4
+                            comments</a></span>
                 </div>
             </header>
 
