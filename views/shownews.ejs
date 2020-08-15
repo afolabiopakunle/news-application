@@ -1,3 +1,23 @@
 <%- include ("./partials/header") %>
-<h1> <%= foundNews.title %> </h1>
+<div>
+
+    <article class="blog-post px-3 py-5 p-md-5">
+        <div class="container">
+            <header class="blog-post-header">
+                <h2 class="title mb-2"><%= foundNews.title %></h2>
+                <div class="meta mb-3"><span class="date">Published on <%= foundNews.createdOn %> </span><span class="time">5 min read</span><span class="comment"><a href="#">4 comments</a></span>
+                </div>
+            </header>
+
+            <div class="blog-post-body">
+                <figure class="blog-banner">
+                    <a href="https://made4dev.com"><img class="img-fluid rounded" src="<%= foundNews.picture %>" alt="image"></a>
+                    <figcaption class="mt-2 image-caption">Image Credit: <a href="https://made4dev.com?ref=devblog" target="_blank">made4dev.com (Premium Programming T-shirts)</a>
+                    </figcaption>
+                </figure>
+                <p><%= foundNews.body %></p>
+            </div>
+        </div>
+    </article>
+</div>
 <%- include ("./partials/footer") %>
