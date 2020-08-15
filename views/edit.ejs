@@ -1,0 +1,22 @@
+<%- include ("./partials/header") %>
+<section class="cta-section theme-bg-light py-5 vh-100">
+    <div class="container">
+        <h2 class="heading">EDIT: <%= foundNews.title %></h2>
+        <form action="/news" method="POST">
+            <div class="form-group">
+                <label for="exampleInputEmail1">News Title</label>
+                <input type="text" value="<%= foundNews.title %>" class=" form-control" name="title" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="News Title">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">News picture</label>
+                <input type="text" value="<%= foundNews.picture %>" class="form-control" name="picture" required id="exampleInputPassword1" placeholder="Paste Image URL">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Post News</label>
+                <textarea class="form-control" name="body" id="exampleFormControlTextarea1" required rows="5"><%= foundNews.body %> </textarea>
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Update</button>
+        </form>
+    </div>
+</section>
+<%- include ("./partials/footer") %>

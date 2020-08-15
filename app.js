@@ -71,6 +71,7 @@ app.post("/news", (req, res) => {
     })
 })
 
+//SHOW NEWS
 app.get("/news/:id", (req, res) => {
     News.findById(req.params.id, (err, foundNews) => {
         if (err) {
@@ -82,5 +83,18 @@ app.get("/news/:id", (req, res) => {
         }
     })
 })
-//SHOW NEWS
+
+//UPDATE ROUTE
+app.get("/news/:id/edit", (req, res) => {
+    News.findById(req.params.id, (err, foundNews) => {
+        res.render("edit", {
+            foundNews
+        })
+    })
+})
+
+app.put("/news/update", (req, res) => {
+
+})
+
 app.listen(3000, () => console.log(`app running on port ${PORT} http://localhost:${PORT}`));

@@ -12,12 +12,13 @@
 
             <div class="blog-post-body">
                 <figure class="blog-banner">
-                    <a href="https://made4dev.com"><img class="img-fluid rounded" src="<%= foundNews.picture %>" alt="image"></a>
-                    <figcaption class="mt-2 image-caption">Image Credit: <a href="https://made4dev.com?ref=devblog" target="_blank">made4dev.com (Premium Programming T-shirts)</a>
+                    <a href="#"><img class="img-fluid rounded" src="<%= foundNews.picture %>" alt="image"></a>
+                    <figcaption class="mt-2 image-caption">Image Credit: <a href="# target=" _blank">made4dev.com (Premium Programming T-shirts)</a>
                     </figcaption>
                 </figure>
                 <p><%= foundNews.body %></p>
             </div>
+            <a href="/news/<%= foundNews._id %>/edit" class="btn btn-primary float-right">Edit News</a>
         </div>
     </article>
 </div>
